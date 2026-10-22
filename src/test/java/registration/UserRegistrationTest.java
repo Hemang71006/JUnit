@@ -96,4 +96,14 @@ class UserRegistrationTest {
     void givenPasswordWithLessThanEightCharactersShouldReturnFalse() {
         assertFalse(validator.validatePasswordLength("Pass1!"));
     }
+
+    @Test
+    void givenPasswordWithUppercaseShouldReturnTrue() {
+        assertTrue(validator.validatePasswordUppercase("passwordA"));
+    }
+
+    @Test
+    void givenPasswordWithoutUppercaseShouldReturnFalse() {
+        assertFalse(validator.validatePasswordUppercase("password1!"));
+    }
 }

@@ -27,4 +27,8 @@ public class UserRegistration {
     public boolean validatePasswordLength(String password) {
         return password != null && password.length() >= 8;
     }
+
+    public boolean validatePasswordUppercase(String password) {
+        return password != null && password.matches(".*[A-Z].*");
+    }
 }
