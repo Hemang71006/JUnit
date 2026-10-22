@@ -77,8 +77,9 @@ JUnit/
     ├── main/
     │   └── java/
     │       └── registration/
-    │           └── validation/
+    │           └── UserRegistration.java
     └── test/
         └── java/
             └── registration/
-                └── validation/
+                ├── UserRegistrationTest.java
+                └── EmailValidationParameterizedTest.java
