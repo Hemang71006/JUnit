@@ -31,4 +31,8 @@ public class UserRegistration {
     public boolean validatePasswordUppercase(String password) {
         return password != null && password.matches(".*[A-Z].*");
     }
+
+    public boolean validatePasswordNumber(String password) {
+        return password != null && password.matches(".*[0-9].*");
+    }
 }

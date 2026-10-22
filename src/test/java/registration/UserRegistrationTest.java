@@ -106,4 +106,14 @@ class UserRegistrationTest {
     void givenPasswordWithoutUppercaseShouldReturnFalse() {
         assertFalse(validator.validatePasswordUppercase("password1!"));
     }
+
+    @Test
+    void givenPasswordWithDigitShouldReturnTrue() {
+        assertTrue(validator.validatePasswordNumber("password1"));
+    }
+
+    @Test
+    void givenPasswordWithoutDigitShouldReturnFalse() {
+        assertFalse(validator.validatePasswordNumber("Password!"));
+    }
 }
