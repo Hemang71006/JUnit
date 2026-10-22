@@ -172,4 +172,34 @@ class UserRegistrationTest {
             assertFalse(validator.validateEmail(email), "Should reject: " + email);
         }
     }
+
+    @Test
+    void happyPathShouldAcceptValidRegistrationInputs() {
+        assertTrue(validator.validateFirstName("Hemang"));
+        assertTrue(validator.validateLastName("Jeswani"));
+        assertTrue(validator.validateEmail("abc.xyz@bl.co.in"));
+        assertTrue(validator.validateMobile("91 9919819801"));
+
+        // Password meets UC5, UC6, UC7, and UC8
+        String password = "Password1!";
+
+        assertTrue(validator.validatePasswordLength(password));
+        assertTrue(validator.validatePasswordUppercase(password));
+        assertTrue(validator.validatePasswordNumber(password));
+        assertTrue(validator.validatePasswordSpecialCharacter(password));
+    }
+
+    @Test
+    void sadPathShouldRejectInvalidRegistrationInputs() {
+        assertFalse(validator.validateFirstName("he"));
+        assertFalse(validator.validateLastName("jes"));
+        assertFalse(validator.validateEmail("invalid-email"));
+        assertFalse(validator.validateMobile("9919819801"));
+
+        // Password fails the individual rules
+        assertFalse(validator.validatePasswordLength("Pass1!"));
+        assertFalse(validator.validatePasswordUppercase("password1!"));
+        assertFalse(validator.validatePasswordNumber("Password!"));
+        assertFalse(validator.validatePasswordSpecialCharacter("Password12"));
+    }
 }
