@@ -22,4 +22,19 @@ class UserRegistrationTest {
     void givenFirstNameShorterThanThreeCharactersShouldReturnFalse() {
         assertFalse(validator.validateFirstName("He"));
     }
+
+    @Test
+    void givenValidLastNameShouldReturnTrue() {
+        assertTrue(validator.validateLastName("Jeswani"));
+    }
+
+    @Test
+    void givenLastNameStartingWithLowercaseShouldReturnFalse() {
+        assertFalse(validator.validateLastName("jeswani"));
+    }
+
+    @Test
+    void givenLastNameShorterThanThreeCharactersShouldReturnFalse() {
+        assertFalse(validator.validateLastName("Jo"));
+    }
 }
