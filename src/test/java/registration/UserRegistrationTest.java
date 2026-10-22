@@ -65,4 +65,25 @@ class UserRegistrationTest {
         assertFalse(validator.validateEmail("abc123@gmail.a"));
         assertFalse(validator.validateEmail("abc@gmail.com.1a"));
     }
+
+    @Test
+    void givenValidMobileNumberShouldReturnTrue() {
+        assertTrue(validator.validateMobile("91 9919819801"));
+    }
+
+    @Test
+    void givenMobileWithoutCountryCodeShouldReturnFalse() {
+        assertFalse(validator.validateMobile("9919819801"));
+    }
+
+    @Test
+    void givenMobileWithWrongNumberOfDigitsShouldReturnFalse() {
+        assertFalse(validator.validateMobile("91 991981980"));
+        assertFalse(validator.validateMobile("91 99198198012"));
+    }
+
+    @Test
+    void givenMobileWithoutSpaceShouldReturnFalse() {
+        assertFalse(validator.validateMobile("919919819801"));
+    }
 }

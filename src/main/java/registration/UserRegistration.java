@@ -18,4 +18,9 @@ public class UserRegistration {
                 "^[A-Za-z0-9]+(?:[.+-][A-Za-z0-9]+)*@[A-Za-z0-9]+(?:\\.[A-Za-z]{2,}){1,2}$"
         );
     }
+
+    public boolean validateMobile(String mobile) {
+        return mobile != null
+                && mobile.matches("^[0-9]{1,3} [0-9]{10}$");
+    }
 }
