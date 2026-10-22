@@ -35,4 +35,20 @@ public class UserRegistration {
     public boolean validatePasswordNumber(String password) {
         return password != null && password.matches(".*[0-9].*");
     }
+
+    public boolean validatePasswordSpecialCharacter(String password) {
+        if (password == null) {
+            return false;
+        }
+
+        int specialCount = 0;
+
+        for (char ch : password.toCharArray()) {
+            if (!Character.isLetterOrDigit(ch)) {
+                specialCount++;
+            }
+        }
+
+        return specialCount == 1;
+    }
 }

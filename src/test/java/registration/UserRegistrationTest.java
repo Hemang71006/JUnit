@@ -116,4 +116,19 @@ class UserRegistrationTest {
     void givenPasswordWithoutDigitShouldReturnFalse() {
         assertFalse(validator.validatePasswordNumber("Password!"));
     }
+
+    @Test
+    void givenPasswordWithExactlyOneSpecialCharacterShouldReturnTrue() {
+        assertTrue(validator.validatePasswordSpecialCharacter("Password1!"));
+    }
+
+    @Test
+    void givenPasswordWithoutSpecialCharacterShouldReturnFalse() {
+        assertFalse(validator.validatePasswordSpecialCharacter("Password12"));
+    }
+
+    @Test
+    void givenPasswordWithMoreThanOneSpecialCharacterShouldReturnFalse() {
+        assertFalse(validator.validatePasswordSpecialCharacter("Password1!!"));
+    }
 }
