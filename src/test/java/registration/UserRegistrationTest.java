@@ -86,4 +86,14 @@ class UserRegistrationTest {
     void givenMobileWithoutSpaceShouldReturnFalse() {
         assertFalse(validator.validateMobile("919919819801"));
     }
+
+    @Test
+    void givenPasswordWithAtLeastEightCharactersShouldReturnTrue() {
+        assertTrue(validator.validatePasswordLength("Password1!"));
+    }
+
+    @Test
+    void givenPasswordWithLessThanEightCharactersShouldReturnFalse() {
+        assertFalse(validator.validatePasswordLength("Pass1!"));
+    }
 }
